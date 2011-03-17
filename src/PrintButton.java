@@ -25,11 +25,12 @@ public class PrintButton extends JButton {
     private class PrintListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (_holder.getPrintOrder().equals("PreOrder"))
-				_message.setText("Not implemented!");
+				_message.setText(_bst.preOrder());
+				//_message.setText("Not implemented!");
 			else if (_holder.getPrintOrder().equals("InOrder"))
 				_message.setText(_bst.inOrder());
 			else if (_holder.getPrintOrder().equals("PostOrder"))
-				_message.setText("Not implemented!");
+				_message.setText(_bst.postOrder());
 		}
     }
 }

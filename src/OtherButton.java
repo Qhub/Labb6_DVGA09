@@ -25,7 +25,8 @@ public class OtherButton extends JButton {
     private class OtherListener implements ActionListener {
     	public void actionPerformed(ActionEvent e) {
     		if (_title.equals("Remove All"))
-    			_message.setText("Not implemented!");
+    			_bst.clear();
+    			//_message.setText("Not implemented!");
     		else if (_title.equals("Is Empty")) {
     			if (_bst.isEmpty())
     				_message.setText("BST is empty.");

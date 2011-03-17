@@ -71,6 +71,7 @@ public class BST {
     //Post: element aElement has been deleted from the BST
     public void delete(int aElement){
     	_root = this.deleteAux(aElement, _root);
+    	//clear(); // Call clear method again for new element
     }
 
     //Method for deleting an element in a BST
@@ -78,13 +79,27 @@ public class BST {
     //Post: element aElement has been deleted from the BST 
     //with root aNode
     private Node deleteAux(int aElement, Node aNode){
-        return null;
+    	return null;
     }
 
     //Method for removing all elements in the BST
     //Pre: true
     //Post: the BST is empty
     public void clear(){
+    	
+    	while(isEmpty() != true)
+    	{
+    		delete(_root.getElement());
+    	}
+    	
+    	/*if (isEmpty())
+    	{
+    		// Nothing
+    	}
+    	else
+    	{
+    		delete(_root.getElement()); // Send element for deleting
+    	}*/
     }
 
     //Method for checking whether the BST is empty or not
@@ -106,7 +121,13 @@ public class BST {
     //Pre: true
     //Post: result = string with BST elements in preorder    
     private String preOrderAux(Node aNode){
-        return null;
+        String s = "";
+        if (aNode != null) {
+        	s += aNode.getElement() + " ";
+        	s += this.preOrderAux(aNode.getLeft());
+        	s += this.preOrderAux(aNode.getRight());
+        }
+        return s;
     }
     
     //Method for creating a string with the BST elements in inorder 
@@ -140,7 +161,8 @@ public class BST {
     //Pre: true
     //Post: result = string with BST elements in postorder  
     private String postOrderAux(Node aNode){
-        return null;
+        String s = "To Be Continued...";
+    	return s;
     }
 
     //Method for saving the BST to a file
