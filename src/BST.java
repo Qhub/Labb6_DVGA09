@@ -10,12 +10,14 @@ import java.io.*;
 public class BST {
 	//First the properties
     private Node _root;    //component
-
+    private int counter;
+    
     //Then the methods, starting with the constructor
     //Pre: true
     //Post: an empty binary search tree is created
     public BST(){
     	_root = null;
+    	counter = 1;
     }
 
     //Method for inserting an element in the BST
@@ -161,8 +163,15 @@ public class BST {
     //Pre: true
     //Post: result = string with BST elements in postorder  
     private String postOrderAux(Node aNode){
-        String s = "To Be Continued...";
-    	return s;
+    	
+    	String s = "";
+    	if (aNode != null) {
+        	s += this.postOrderAux(aNode.getLeft());
+        	s += this.postOrderAux(aNode.getRight());
+         	s += aNode.getElement() + " ";
+        }
+    	
+        return s;
     }
 
     //Method for saving the BST to a file
